@@ -3,21 +3,25 @@
 using namespace std;
 
 int main() {
-	int namelength = 0;//ÀÔ·ÂµÈ ¹®ÀÚ¿­ÀÇ ±æÀÌ°¡ ÀúÀåµÉ º¯¼ö
-	char name[100],longname[100]; //ÀÌ¸§À» ÀÔ·Â¹ŞÀ» ¹®ÀÚ¿­°ú °¡Àå ±ä ÀÌ¸§ÀÌ µé¾î°¥ ¹®ÀÚ¿­ »ı¼º
-	cout << "5¸íÀÇ ÀÌ¸§À» ';'À¸·Î ±¸ºĞÇÏ¿© ÀÔ·ÂÇÏ¼¼¿ä.\n>> ";
+	int namelength = 0;//ì…ë ¥ëœ ë¬¸ìì—´ì˜ ê¸¸ì´ê°€ ì €ì¥ë  ë³€ìˆ˜
+	char name[100],longname[100]; //ì´ë¦„ì„ ì…ë ¥ë°›ì„ ë¬¸ìì—´ê³¼ ê°€ì¥ ê¸´ ì´ë¦„ì´ ë“¤ì–´ê°ˆ ë¬¸ìì—´ ìƒì„±
+	cout << "5ëª…ì˜ ì´ë¦„ì„ ';'ìœ¼ë¡œ êµ¬ë¶„í•˜ì—¬ ì…ë ¥í•˜ì„¸ìš”.\n>> ";
 
-	for (int i = 0; i < 5; i++)//5°³ÀÇ ÀÌ¸§À» ÀÔ·Â¹Şµµ·Ï ·çÇÁ
+	for (int i = 0; i < 5; i++)//5ê°œì˜ ì´ë¦„ì„ ì…ë ¥ë°›ë„ë¡ ë£¨í”„
 	{
 		cin.getline(name, 100, ';');
 		cout << i + 1 << " : " << name << endl;
-		if (namelength < strlen(name))//ÀÔ·Â¹ŞÀº ÀÌ¸§À» namelength¿¡ ÀúÀåÇÏ¿© ÇÏ³ªÇÏ³ª ±æÀÌ¸¦ ´ëÁ¶
+		if (namelength < strlen(name))//ì…ë ¥ë°›ì€ ì´ë¦„ì„ namelengthì— ì €ì¥í•˜ì—¬ í•˜ë‚˜í•˜ë‚˜ ê¸¸ì´ë¥¼ ëŒ€ì¡°
 		{
-			namelength = strlen(name);//°¡Àå ±ä ÀÌ¸§ÀÌ ¸¶Áö¸·À¸·Î namelength¿¡ ÀúÀåµÉ °Í.
-			strcpy_s(longname, name);//strcpy¸¦ ÀÌ¿ëÇØ °¡Àå ±ä ÀÌ¸§À» longname¿¡ º¹»çÇÑ´Ù.
+			namelength = strlen(name);//ê°€ì¥ ê¸´ ì´ë¦„ì´ ë§ˆì§€ë§‰ìœ¼ë¡œ namelengthì— ì €ì¥ë  ê²ƒ.
+			strcpy_s(longname,strlen(name)+1, name);//strcpyë¥¼ ì´ìš©í•´ ê°€ì¥ ê¸´ ì´ë¦„ì„ longnameì— ë³µì‚¬í•œë‹¤.
+			/*strcpy ì„ ì–¸ ì‹œ ì•„ë˜ì™€ ê°™ì€ ì˜¤ë¥˜ ë°œìƒ(visual studio 2022 í™˜ê²½)
+			error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead.
+			To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+			strcpy_së¥¼ ì‚¬ìš©í•˜ê±°ë‚˜, SDLê²€ì‚¬ ì²´í¬ë¥¼ í•´ì œí•˜ëŠ” ë°©ë²• ë“±ì´ ìˆìŒ.*/
 		}
 	}
-	cout << "°¡Àå ±ä ÀÌ¸§Àº " << longname << endl;
+	cout << "ê°€ì¥ ê¸´ ì´ë¦„ì€ " << longname << endl;
 	return 0;
 
 }
