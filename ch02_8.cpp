@@ -23,5 +23,4 @@ int main() {
 	}
 	cout << "가장 긴 이름은 " << longname << endl;
 	return 0;
-
 }
