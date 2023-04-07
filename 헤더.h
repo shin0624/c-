@@ -1,8 +1,7 @@
-class Circle {
-public:
+struct StructCircle {
+private :
 	int radius;
-	Circle();
-	Circle(int r);
-	~Circle();
+public:
+	StructCircle(int r) { radius = r; };//구조체 생성자
 	double getArea();
 };
