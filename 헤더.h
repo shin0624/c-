@@ -1,7 +1,8 @@
-class Rectangle {
+class Circle {
 public:
-	int width;
-	int height;
-	int getArea();
+	int radius;
+	Circle();
+	Circle(int r);
+	~Circle();
+	double getArea();
 };
-

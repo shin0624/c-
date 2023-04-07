@@ -1,30 +1,32 @@
 #include <iostream>
 using namespace std;
+#include"헤더.h"
 
-#include "glegle.h"
+Circle::Circle() : Circle(1) {}
 
-Rectangle::Rectangle():Rectangle(1) {}//위임생성자
-
-Rectangle::Rectangle(int w, int h) {//타겟생성자
-	width = w, height = h;
+Circle::Circle(int r) {
+	radius = r;
+	cout << "반지름 " << radius << "인 원 생성" << endl;
+}
+Circle::~Circle() {//소멸자 구현
+	cout << "반지름 " << radius << "인 원 소멸" << endl;
 }
 
-Rectangle::Rectangle(int length) {
-	width = height = length;
+double Circle::getArea() {
+	return 3.14 * radius * radius;
 }
 
-bool Rectangle::isSquare() {
-	if (width == height) return true;//정사각형이면 true를 리턴하는 메서드
-	else
-		return false;
-}
+Circle globalDonut(1000);//전역객체 생성(함수 바깥)
+Circle globalPizza(2000);//전역객체 생성(함수 바깥)
 
+void f() {
+	Circle fDonut(100);//지역객체 선언(함수 내)
+	Circle fPizza(200);//지역객체 선언(함수 내)
+}
 int main() {
-	Rectangle rect1;
-	Rectangle rect2(3, 5);
-	Rectangle rect3(3);
+	Circle mainDonut;//지역객체 선언(함수 내)
+	Circle mainPizza(30);//지역객체 선언(함수 내)
+	f();
+	//globalDonut, globalPizza -->mainDonut, mainPizza --> fDonut, fPizza 순으로 생성, 역순으로 소멸
 
-	if (rect1.isSquare()) cout << "rect1은 정사각형이다." << endl;
-	if (rect2.isSquare()) cout << "rect2은 정사각형이다." << endl;
-	if (rect3.isSquare()) cout << "rect3은 정사각형이다." << endl;
 }
